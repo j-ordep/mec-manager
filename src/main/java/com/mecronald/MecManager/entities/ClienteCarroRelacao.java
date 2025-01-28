@@ -8,7 +8,7 @@ import lombok.Setter;
 
 import java.util.Objects;
 
-
+@Table(name = "tb_ClienteCarro")
 @Entity
 @Getter
 @Setter
@@ -31,4 +31,5 @@ public class ClienteCarroRelacao  {
     public int hashCode() {
         return Objects.hashCode(id);
     }
+
 }

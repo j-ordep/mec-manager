@@ -38,4 +38,5 @@ public class ClienteCarroRelacaoPK {
     public int hashCode() {
         return Objects.hash(cliente, carro);
     }
+
 }
