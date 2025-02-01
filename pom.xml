@@ -68,7 +68,7 @@
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
-			<optional>true</optional>
+			<version>1.18.30</version>
 		</dependency>
 
 		<!-- Starter do Spring Boot para Testes -->

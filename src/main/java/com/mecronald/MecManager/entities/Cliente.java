@@ -1,18 +1,17 @@
 package com.mecronald.MecManager.entities;
 
+import com.mecronald.MecManager.dto.CarroDTO;
+import com.mecronald.MecManager.dto.ClienteDTO;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 
 import java.util.*;
 
 @Entity
 @Table(name = "tb_cliente")
-@Getter
-@Setter
+@Data
+@Builder
 @AllArgsConstructor
 @NoArgsConstructor
 public class Cliente {
@@ -26,21 +25,11 @@ public class Cliente {
     private int numero;
     private String email;
 
-// Não é necessario, mas é uma opção se você quiser acessar diretamente todos os clientes que possuem um determinado carro, sem precisar buscar na tabela de relacionamento
-//    @OneToMany(mappedBy = "id.cliente")
-//    private List<ClienteCarroRelacao> carrosDoCliente = new ArrayList<>();
-
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Cliente cliente = (Cliente) o;
-        return numero == cliente.numero && Objects.equals(id, cliente.id) && Objects.equals(nome, cliente.nome) && Objects.equals(cpf, cliente.cpf) && Objects.equals(email, cliente.email);
+    // Cria um objeto DTO a partir do objeto atual
+    public ClienteDTO toDTO() {
+        return new ClienteDTO(this);          // ClienteDTO clienteDTO = cliente.toDTO();
     }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, nome, cpf, numero, email);
-    }
+
+
 }

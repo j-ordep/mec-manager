@@ -1,12 +1,12 @@
 package com.mecronald.MecManager.dto;
 
 import com.mecronald.MecManager.entities.Cliente;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 import org.springframework.beans.BeanUtils;
 
-@Getter
-@Setter
+@Data
+@Builder
+@AllArgsConstructor
 public class ClienteDTO {
 
     private Long id;
@@ -15,8 +15,10 @@ public class ClienteDTO {
     private int numero;
     private String email;
 
+    // Contructor de Cliente para ClienteDTO
+    // copia as propriedades do parametro entity para o objeto atual
     public ClienteDTO(Cliente entity) {
-        BeanUtils.copyProperties(entity, this); // mais simples que o constructor comum
+        BeanUtils.copyProperties(entity, this);
     }
 
 }
